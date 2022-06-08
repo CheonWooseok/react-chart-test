@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Line, LineChart, XAxis, YAxis } from "recharts";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ReChartLine />
     </div>
   );
 }
 
-export default App;
+const line_data = [{ date: "2021-01-01", value: 1 }];
+
+function ReChartLine() {
+  return (
+    <div>
+      <LineChart data={line_data} height={400} width={500}>
+        <XAxis dataKey="date" />
+        <YAxis />
+        <Line dataKey="value" />
+      </LineChart>
+    </div>
+  );
+}
